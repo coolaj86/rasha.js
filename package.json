@@ -1,6 +1,6 @@
 {
   "name": "rasha",
-  "version": "0.0.2",
+  "version": "0.7.0",
   "description": "PEM-to-JWK and JWK-to-PEM for RSA keys in a lightweight, zero-dependency library focused on perfect universal compatibility.",
   "homepage": "https://git.coolaj86.com/coolaj86/rasha.js",
   "main": "index.js",
@@ -25,13 +25,15 @@
   },
   "xkeywords": [
     "zero-dependency",
-    "JWK-to-PEM",
     "PEM-to-JWK",
     "RSA",
     "2048",
     "4096",
     "asn1",
     "x509"
+  ],
+  "xkeywords": [
+    "JWK-to-PEM"
   ],
   "author": "AJ ONeal <coolaj86@gmail.com> (https://coolaj86.com/)",
   "license": "MPL-2.0"

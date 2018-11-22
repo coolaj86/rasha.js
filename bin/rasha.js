@@ -59,8 +59,17 @@ function ASN1(buf, depth) {
 */
 
 var asn1 = ASN1.parse(buf);
+var ws = '';
+function write(asn1) {
+  console.log(ws, 'ch', Buffer.from([asn1.type]).toString('hex'), asn1.length);
+  if (!asn1.children) {
+    return;
+  }
+  asn1.children.forEach(function (a, i) {
+    ws += '\t';
+    write(a);
+    ws = ws.slice(1);
+  });
+}
 console.log(asn1);
-console.log(asn1.type, asn1.length);
-asn1.children.forEach(function (a, i) {
-  console.log(i, 'ch', Buffer.from([a.type]).toString('hex'), a.length);
-});
+write(asn1);

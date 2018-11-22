@@ -18,14 +18,14 @@ try {
 if ('string' === typeof key) {
   var pub = (-1 !== [ 'public', 'spki', 'pkix' ].indexOf(format));
   Rasha.import({ pem: key, public: (pub || format) }).then(function (jwk) {
-    console.log(JSON.stringify(jwk, null, 2));
+    console.info(JSON.stringify(jwk, null, 2));
   }).catch(function (err) {
     console.error(err);
     process.exit(1);
   });
 } else {
   Rasha.export({ jwk: key, format: format }).then(function (pem) {
-    console.log(pem);
+    console.info(pem);
   }).catch(function (err) {
     console.error(err);
     process.exit(2);

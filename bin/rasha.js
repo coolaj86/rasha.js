@@ -71,5 +71,6 @@ function write(asn1) {
     ws = ws.slice(1);
   });
 }
-console.log(asn1);
+console.log(JSON.stringify(asn1, null, 2));
+//console.log(asn1);
 write(asn1);

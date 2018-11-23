@@ -11,9 +11,9 @@ RSA tools. Lightweight. Zero Dependencies. Universal compatibility.
 * [x] JWK-to-PEM
 * [x] SSH "pub" format
 
-<!-- This project is fully functional and tested (and the code is pretty clean).
+This project is fully functional and tested (and the code is pretty clean).
 
-It is considered to be complete, but if you find a bug please open an issue. -->
+It is considered to be complete, but if you find a bug please open an issue.
 
 ## PEM-to-JWK
 
@@ -72,8 +72,6 @@ Jlw7hm9m8TAmFWWyfL0s7wiRvAYkQvpxetorTwHJVLabBDJ+WBOAY2enOLHIRQv+
 atAvHrLXjkUdzF96o0icyF6n7QzGfUPmeWGYg6BEClLS31Whe0eEVQ==
 -----END RSA PRIVATE KEY-----
 ```
-
--->
 
 ### Advanced Options
 
@@ -146,7 +144,7 @@ Qi49OykUCfNZeQlEz7UNNj9RGps/50+CNwIDAQAB
 Testing
 -------
 
-<!-- All cases are tested in `test.sh`. -->
+All cases are tested in `test.sh`.
 
 You can compare these keys to the ones that you get from OpenSSL, ssh-keygen, and WebCrypto:
 

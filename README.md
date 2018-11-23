@@ -17,6 +17,10 @@ This project is fully functional and tested (and the code is pretty clean).
 
 It is considered to be complete, but if you find a bug please open an issue.
 
+## Looking for ECDSA as well?
+
+Check out [Eckles.js](https://git.coolaj86.com/coolaj86/eckles.js)
+
 ## PEM-to-JWK
 
 * [x] PKCS#1 (traditional)

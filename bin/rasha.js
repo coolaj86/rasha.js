@@ -3,6 +3,8 @@
 
 var fs = require('fs');
 var Rasha = require('../index.js');
+var PEM = require('../lib/pem.js');
+var ASN1 = require('../lib/asn1.js');
 
 var infile = process.argv[2];
 var format = process.argv[3];
@@ -16,6 +18,12 @@ try {
 }
 
 if ('string' === typeof key) {
+  if ('tpl' === format) {
+    var block = PEM.parseBlock(key);
+    var asn1 = ASN1.parse(block.der);
+    ASN1.tpl(asn1);
+    return;
+  }
   var pub = (-1 !== [ 'public', 'spki', 'pkix' ].indexOf(format));
   Rasha.import({ pem: key, public: (pub || format) }).then(function (jwk) {
     console.info(JSON.stringify(jwk, null, 2));

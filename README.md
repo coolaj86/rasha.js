@@ -1,5 +1,10 @@
-Rasha.js
+Mirror of [Rasha.js](https://git.coolaj86.com/coolaj86/rasha.js)
 =========
+
+Official Repository: <https://git.coolaj86.com/coolaj86/rasha.js>
+
+Rasha.js
+========
 
 Sponsored by [Root](https://therootcompany.com).
 Built for [ACME.js](https://git.coolaj86.com/coolaj86/acme.js)
@@ -180,6 +185,8 @@ Goals of this project
 
 Legal
 -----
+
+[Rasha.js](https://git.coolaj86.com/coolaj86/rasha.js)
 
 Licensed MPL-2.0
 

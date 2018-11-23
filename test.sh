@@ -1,13 +1,14 @@
 #!/bin/bash
+
+# cause errors to hard-fail
+# (and diff non-0 exit status will cause failure)
 set -e
 
 pemtojwk() {
 	keyid=$1
   if [ -z "$keyid" ]; then
     echo ""
-    echo ""
     echo "Testing PEM-to-JWK PKCS#1"
-    echo ""
   fi
 	#
 	node bin/rasha.js ./fixtures/privkey-rsa-2048.pkcs1.${keyid}pem \
@@ -17,13 +18,14 @@ pemtojwk() {
 	node bin/rasha.js ./fixtures/pub-rsa-2048.pkcs1.${keyid}pem \
     > ./fixtures/pub-rsa-2048.jwk.1.json
 	diff ./fixtures/pub-rsa-2048.jwk.${keyid}json ./fixtures/pub-rsa-2048.jwk.1.json
+  if [ -z "$keyid" ]; then
+    echo "Pass"
+  fi
 
 
   if [ -z "$keyid" ]; then
     echo ""
-    echo ""
     echo "Testing PEM-to-JWK PKCS#8"
-    echo ""
   fi
 	#
 	node bin/rasha.js ./fixtures/privkey-rsa-2048.pkcs8.${keyid}pem \
@@ -33,15 +35,16 @@ pemtojwk() {
 	node bin/rasha.js ./fixtures/pub-rsa-2048.spki.${keyid}pem \
     > ./fixtures/pub-rsa-2048.jwk.1.json
 	diff ./fixtures/pub-rsa-2048.jwk.${keyid}json ./fixtures/pub-rsa-2048.jwk.1.json
+  if [ -z "$keyid" ]; then
+    echo "Pass"
+  fi
 }
 
 jwktopem() {
 	keyid=$1
   if [ -z "$keyid" ]; then
     echo ""
-    echo ""
     echo "Testing JWK-to-PEM PKCS#1"
-    echo ""
   fi
 	#
 	node bin/rasha.js ./fixtures/privkey-rsa-2048.jwk.${keyid}json pkcs1 \
@@ -51,13 +54,13 @@ jwktopem() {
 	node bin/rasha.js ./fixtures/pub-rsa-2048.jwk.${keyid}json pkcs1 \
     > ./fixtures/pub-rsa-2048.pkcs1.1.pem
 	diff ./fixtures/pub-rsa-2048.pkcs1.${keyid}pem ./fixtures/pub-rsa-2048.pkcs1.1.pem
-
+  if [ -z "$keyid" ]; then
+    echo "Pass"
+  fi
 
   if [ -z "$keyid" ]; then
     echo ""
-    echo ""
     echo "Testing JWK-to-PEM PKCS#8"
-    echo ""
   fi
 	#
 	node bin/rasha.js ./fixtures/privkey-rsa-2048.jwk.${keyid}json pkcs8 \
@@ -67,13 +70,13 @@ jwktopem() {
 	node bin/rasha.js ./fixtures/pub-rsa-2048.jwk.${keyid}json spki \
     > ./fixtures/pub-rsa-2048.spki.1.pem
 	diff ./fixtures/pub-rsa-2048.spki.${keyid}pem ./fixtures/pub-rsa-2048.spki.1.pem
-
+  if [ -z "$keyid" ]; then
+    echo "Pass"
+  fi
 
   if [ -z "$keyid" ]; then
     echo ""
-    echo ""
     echo "Testing JWK-to-SSH"
-    echo ""
   fi
 	#
 	node bin/rasha.js ./fixtures/privkey-rsa-2048.jwk.${keyid}json ssh > ./fixtures/pub-rsa-2048.ssh.1.pub
@@ -81,6 +84,9 @@ jwktopem() {
 	#
 	node bin/rasha.js ./fixtures/pub-rsa-2048.jwk.${keyid}json ssh > ./fixtures/pub-rsa-2048.ssh.1.pub
 	diff ./fixtures/pub-rsa-2048.ssh.${keyid}pub ./fixtures/pub-rsa-2048.ssh.1.pub
+  if [ -z "$keyid" ]; then
+    echo "Pass"
+  fi
 }
 
 rndkey() {
@@ -117,7 +123,7 @@ jwktopem ""
 
 echo ""
 echo ""
-echo "Testing different size random keys"
+echo "Re-running tests with random keys of varying sizes"
 echo ""
 rndkey 32 # minimum key size
 rndkey 64
@@ -127,11 +133,14 @@ rndkey 512
 rndkey 768
 rndkey 1024
 rndkey 2048 # first secure key size
-rndkey 3072
-rndkey 4096 # largest reasonable key size
+#rndkey 3072
+#rndkey 4096 # largest reasonable key size
+  if [ -z "$keyid" ]; then
+    echo "Pass"
+  fi
 echo ""
 echo "Note:"
-echo "Keys larger than 4096 work as well, but they take minutes to generate, so we stop here."
+echo "Keys larger than 2048 have been tested and work, but are omitted from automated tests to save time."
 
 
 rm fixtures/*.1.*
@@ -141,4 +150,4 @@ echo ""
 echo "PASSED:"
 echo "• All inputs produced valid outputs"
 echo "• All outputs matched known-good values"
-echo ""
+echo "• All random tests passed reciprosity"

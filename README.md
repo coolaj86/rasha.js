@@ -7,6 +7,8 @@ and [Greenlock.js](https://git.coolaj86.com/coolaj86/greenlock.js)
 
 RSA tools. Lightweight. Zero Dependencies. Universal compatibility.
 
+| ~550 lines of code | 3kb gzipped | 10kb minified | 18kb with comments |
+
 * [x] PEM-to-JWK
 * [x] JWK-to-PEM
 * [x] SSH "pub" format
@@ -168,9 +170,11 @@ ssh-keygen -f ./pub-rsa-2048.spki.pem -i -mPKCS8 > ./pub-rsa-2048.ssh.pub
 Goals of this project
 -----
 
-* Zero Dependencies
 * Focused support for 2048-bit and 4096-bit RSA keypairs (although any size is technically supported)
-* Convert both ways
+* Zero Dependencies
+* VanillaJS
+* Quality Code: Good comments and tests
+* Convert both ways: PEM-to-JWK and JWK-to-PEM (also supports SSH pub files)
 * Browser support as well (TODO)
 * OpenSSL, ssh-keygen, and WebCrypto compatibility
 

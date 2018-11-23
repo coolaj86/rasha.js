@@ -1,6 +1,6 @@
 {
   "name": "rasha",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "💯 PEM-to-JWK and JWK-to-PEM for RSA keys in a lightweight, zero-dependency library focused on perfect universal compatibility.",
   "homepage": "https://git.coolaj86.com/coolaj86/rasha.js",
   "main": "index.js",
@@ -17,7 +17,7 @@
   },
   "scripts": {
     "postinstall": "node lib/telemetry.js event:install",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "bash test.sh"
   },
   "repository": {
     "type": "git",

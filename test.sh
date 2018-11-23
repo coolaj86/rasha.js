@@ -37,16 +37,16 @@ node bin/rasha.js ./fixtures/pub-rsa-2048.jwk.json pkcs1 > ./fixtures/pub-rsa-20
 diff ./fixtures/pub-rsa-2048.pkcs1.pem ./fixtures/pub-rsa-2048.pkcs1.1.pem
 
 
-#echo ""
-#echo ""
-#echo "Testing JWK-to-PEM PKCS#8"
-#echo ""
+echo ""
+echo ""
+echo "Testing JWK-to-PEM PKCS#8"
+echo ""
 #
-#node bin/rasha.js ./fixtures/privkey-rsa-2048.jwk.json pkcs8 > ./fixtures/privkey-rsa-2048.pkcs8.1.pem
-#diff ./fixtures/privkey-rsa-2048.pkcs8.pem ./fixtures/privkey-rsa-2048.pkcs8.1.pem
+node bin/rasha.js ./fixtures/privkey-rsa-2048.jwk.json pkcs8 > ./fixtures/privkey-rsa-2048.pkcs8.1.pem
+diff ./fixtures/privkey-rsa-2048.pkcs8.pem ./fixtures/privkey-rsa-2048.pkcs8.1.pem
 #
-#node bin/rasha.js ./fixtures/pub-rsa-2048.jwk.json spki > ./fixtures/pub-rsa-2048.spki.1.pem
-#diff ./fixtures/pub-rsa-2048.pski.pem ./fixtures/pub-rsa-2048.spki.1.pem
+node bin/rasha.js ./fixtures/pub-rsa-2048.jwk.json spki > ./fixtures/pub-rsa-2048.spki.1.pem
+diff ./fixtures/pub-rsa-2048.spki.pem ./fixtures/pub-rsa-2048.spki.1.pem
 
 
 echo ""

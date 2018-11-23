@@ -8,7 +8,7 @@ and [Greenlock.js](https://git.coolaj86.com/coolaj86/greenlock.js)
 RSA tools. Lightweight. Zero Dependencies. Universal compatibility.
 
 * [x] PEM-to-JWK
-* [ ] JWK-to-PEM (in progress)
+* [x] JWK-to-PEM
 * [x] SSH "pub" format
 
 <!-- This project is fully functional and tested (and the code is pretty clean).
@@ -49,7 +49,7 @@ Rasha.import({ pem: pem }).then(function (jwk) {
 ## JWK-to-PEM
 
 * [x] PKCS#1 (traditional)
-* [ ] PKCS#8, SPKI/PKIX
+* [x] PKCS#8, SPKI/PKIX
 * [x] 2048-bit, 4096-bit (and ostensibily all others)
 * [x] SSH (RFC4716), (RFC 4716/SSH2)
 
@@ -67,7 +67,7 @@ Rasha.export({ jwk: jwk }).then(function (pem) {
 -----BEGIN RSA PRIVATE KEY-----
 MIIEpAIBAAKCAQEAm2ttVBxPlWw06ZmGBWVDlfjkPAJ4DgnY0TrDwtCohHzLxGhD
 NzUJefLukC+xu0LBKylYojT5vTkxaOhxeSYo31syu4WhxbkTBLICOFcCGMob6pSQ
-38P8LdAIlb0pqDHxEJ9adWomjuFf0...e5cCBahfsiNtNR6WV1/iCSuINYs6uPdA
+38P8LdAIlb0pqDHxEJ9adWomjuFf.....5cCBahfsiNtNR6WV1/iCSuINYs6uPdA
 Jlw7hm9m8TAmFWWyfL0s7wiRvAYkQvpxetorTwHJVLabBDJ+WBOAY2enOLHIRQv+
 atAvHrLXjkUdzF96o0icyF6n7QzGfUPmeWGYg6BEClLS31Whe0eEVQ==
 -----END RSA PRIVATE KEY-----
@@ -76,8 +76,6 @@ atAvHrLXjkUdzF96o0icyF6n7QzGfUPmeWGYg6BEClLS31Whe0eEVQ==
 -->
 
 ### Advanced Options
-
-<!--
 
 `format: 'pkcs8'`:
 
@@ -95,7 +93,7 @@ Rasha.export({ jwk: jwk, format: 'pkcs8' }).then(function (pem) {
 -----BEGIN PRIVATE KEY-----
 MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCba21UHE+VbDTp
 mYYFZUOV+OQ8AngOCdjROsPC0KiEfMvEaEM3NQl58u6QL7G7QsErKViiNPm9OTFo
-6HF5JijfWzK7haHFuRMEsgI4VwIYy...fLorV1ovjwKBgAJR1m8dYKemfaW8P9YZ
+6HF5JijfWzK7haHFuRMEsgI4VwIY.....LorV1ovjwKBgAJR1m8dYKemfaW8P9YZ
 Uux7lwIFqF+yI201HpZXX+IJK4g1izq490AmXDuGb2bxMCYVZbJ8vSzvCJG8BiRC
 +nF62itPAclUtpsEMn5YE4BjZ6c4schFC/5q0C8esteORR3MX3qjSJzIXqftDMZ9
 Q+Z5YZiDoEQKUtLfVaF7R4RV
@@ -119,10 +117,8 @@ Rasha.export({ jwk: jwk, format: 'ssh' }).then(function (pub) {
 ```
 
 ```
-ssh-rsa TODO-TODO-TODO RSA-2048@localhost
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCba21UHE.....Q02P1Eamz/nT4I3 rsa@localhost
 ```
-
--->
 
 `public: 'true'`:
 
@@ -130,7 +126,6 @@ If a private key is used as input, a private key will be output.
 
 If you'd like to output a public key instead you can pass `public: true`.
 
-<!--
 or `format: 'spki'`.
 
 ```js
@@ -141,14 +136,12 @@ Rasha.export({ jwk: jwk, public: true }).then(function (pem) {
 ```
 
 ```
------BEGIN RSA PUBLIC KEY-----
+-----BEGIN PUBLIC KEY-----
 MIIBCgKCAQEAm2ttVBxPlWw06ZmGBWVDlfjkPAJ4DgnY0TrDwtCohHzLxGhDNzUJ
-efLukC+xu0LBKylYojT5vTkxaOhxe...eTmzCh2ikrwTMja7mUdBJf2bK3By5AB0
+efLukC+xu0LBKylYojT5vTkxaOhx.....TmzCh2ikrwTMja7mUdBJf2bK3By5AB0
 Qi49OykUCfNZeQlEz7UNNj9RGps/50+CNwIDAQAB
------END RSA PUBLIC KEY-----
+-----END PUBLIC KEY-----
 ```
-
--->
 
 Testing
 -------

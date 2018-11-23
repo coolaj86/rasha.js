@@ -17,7 +17,8 @@ It is considered to be complete, but if you find a bug please open an issue. -->
 
 ## PEM-to-JWK
 
-* [x] PKCS#1 (traditional), PKCS#8, SPKI/PKIX
+* [x] PKCS#1 (traditional)
+* [x] PKCS#8, SPKI/PKIX
 * [x] 2048-bit, 4096-bit (and ostensibily all others)
 * [x] SSH (RFC4716), (RFC 4716/SSH2)
 
@@ -45,16 +46,16 @@ Rasha.import({ pem: pem }).then(function (jwk) {
 }
 ```
 
-<!--
 ## JWK-to-PEM
 
-* [x] PKCS#1 (traditional), PKCS#8, SPKI/PKIX
+* [x] PKCS#1 (traditional)
+* [ ] PKCS#8, SPKI/PKIX
 * [x] 2048-bit, 4096-bit (and ostensibily all others)
 * [x] SSH (RFC4716), (RFC 4716/SSH2)
 
 ```js
 var Rasha = require('rasha');
-var jwk = require('rasha/fixtures/privkey-rsa-2038.jwk.json');
+var jwk = require('rasha/fixtures/privkey-rsa-2048.jwk.json');
 
 Rasha.export({ jwk: jwk }).then(function (pem) {
   // PEM in PKCS1 (traditional) format

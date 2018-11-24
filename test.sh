@@ -122,6 +122,18 @@ pemtojwk ""
 jwktopem ""
 
 echo ""
+echo "testing node key generation"
+node bin/rasha.js > /dev/null
+node bin/rasha.js jwk > /dev/null
+node bin/rasha.js json 2048 > /dev/null
+node bin/rasha.js der > /dev/null
+node bin/rasha.js pkcs8 der > /dev/null
+node bin/rasha.js pem > /dev/null
+node bin/rasha.js pkcs1 pem > /dev/null
+node bin/rasha.js spki > /dev/null
+echo "PASS"
+
+echo ""
 echo ""
 echo "Re-running tests with random keys of varying sizes"
 echo ""
@@ -139,7 +151,6 @@ echo "Pass"
 echo ""
 echo "Note:"
 echo "Keys larger than 2048 have been tested and work, but are omitted from automated tests to save time."
-
 
 rm fixtures/*.1.*
 

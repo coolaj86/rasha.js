@@ -9,6 +9,22 @@ var ASN1 = require('../lib/asn1.js');
 var infile = process.argv[2];
 var format = process.argv[3];
 
+if (!infile) {
+  infile = 'jwk';
+}
+
+if (-1 !== [ 'jwk', 'pem', 'json', 'der', 'pkcs1', 'pkcs8', 'spki' ].indexOf(infile)) {
+  console.log("Generating new key...");
+  Rasha.generate({
+    format: infile
+  , modulusLength: parseInt(format, 10) || 2048
+  , encoding: parseInt(format, 10) ? null : format
+  }).then(function (key) {
+    console.log(key.private);
+    console.log(key.public);
+  });
+  return;
+}
 var key = fs.readFileSync(infile, 'ascii');
 
 try {

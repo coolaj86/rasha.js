@@ -5,27 +5,51 @@ Sponsored by [Root](https://therootcompany.com).
 Built for [ACME.js](https://git.coolaj86.com/coolaj86/acme.js)
 and [Greenlock.js](https://git.coolaj86.com/coolaj86/greenlock.js)
 
-RSA tools. Lightweight. Zero Dependencies. Universal compatibility.
-
 | ~550 lines of code | 3kb gzipped | 10kb minified | 18kb with comments |
 
+RSA tools. Lightweight. Zero Dependencies. Universal compatibility.
+
+* [x] Fast and Easy RSA Key Generation
 * [x] PEM-to-JWK
 * [x] JWK-to-PEM
 * [x] SSH "pub" format
+* [ ] ECDSA
+  * **Need EC or ECDSA tools?** Check out [Eckles.js](https://git.coolaj86.com/coolaj86/eckles.js)
 
-This project is fully functional and tested (and the code is pretty clean).
+## Generate RSA Key
 
-It is considered to be complete, but if you find a bug please open an issue.
+Achieves the *fastest possible key generation* using node's native RSA bindings to OpenSSL,
+then converts to JWK for ease-of-use.
 
-## Looking for ECDSA as well?
+```
+Rasha.generate({ format: 'jwk' }).then(function (keypair) {
+  console.log(keypair.private);
+  console.log(keypair.public);
+});
+```
 
-Check out [Eckles.js](https://git.coolaj86.com/coolaj86/eckles.js)
+**options**
+
+* `format` defaults to `'jwk'`
+  * `'pkcs1'` (traditional)
+  * `'pkcs8'`
+* `modulusLength` defaults to 2048 (must not be lower)
+  * generally you shouldn't pick a larger key size - they're slow
+  * **2048** is more than sufficient
+  * 3072 is way, way overkill and takes a few seconds to generate
+  * 4096 can take about a minute to generate and is just plain wasteful
+
+**advanced options**
+
+These options are provided for debugging and should not be used.
+
+* `publicExponent` defaults to 65537 (`0x10001`)
 
 ## PEM-to-JWK
 
 * [x] PKCS#1 (traditional)
 * [x] PKCS#8, SPKI/PKIX
-* [x] 2048-bit, 4096-bit (and ostensibily all others)
+* [x] 2048-bit, 3072-bit, 4096-bit (and ostensibily all others)
 * [x] SSH (RFC4716), (RFC 4716/SSH2)
 
 ```js

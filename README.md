@@ -1,3 +1,8 @@
+Mirror of [Rasha.js](https://git.coolaj86.com/coolaj86/rasha.js)
+=================
+
+Official Repository: <https://git.coolaj86.com/coolaj86/rasha.js>
+
 [Rasha.js](https://git.coolaj86.com/coolaj86/rasha.js)
 =========
 

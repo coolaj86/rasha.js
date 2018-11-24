@@ -1,4 +1,4 @@
-Rasha.js
+[Rasha.js](https://git.coolaj86.com/coolaj86/rasha.js)
 =========
 
 Sponsored by [Root](https://therootcompany.com).
@@ -185,7 +185,7 @@ Goals of this project
 Legal
 -----
 
-Licensed MPL-2.0
-
+[Rasha.js](https://git.coolaj86.com/coolaj86/rasha.js) |
+MPL-2.0 |
 [Terms of Use](https://therootcompany.com/legal/#terms) |
 [Privacy Policy](https://therootcompany.com/legal/#privacy)

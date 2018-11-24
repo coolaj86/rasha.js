@@ -135,9 +135,7 @@ rndkey 1024
 rndkey 2048 # first secure key size
 #rndkey 3072
 #rndkey 4096 # largest reasonable key size
-  if [ -z "$keyid" ]; then
-    echo "Pass"
-  fi
+echo "Pass"
 echo ""
 echo "Note:"
 echo "Keys larger than 2048 have been tested and work, but are omitted from automated tests to save time."

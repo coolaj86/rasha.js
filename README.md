@@ -152,7 +152,7 @@ Testing
 
 All cases are tested in `test.sh`.
 
-You can compare these keys to the ones that you get from OpenSSL, ssh-keygen, and WebCrypto:
+You can compare these keys to the ones that you get from OpenSSL, OpenSSH/ssh-keygen, and WebCrypto:
 
 ```bash
 # Generate 2048-bit RSA Keypair

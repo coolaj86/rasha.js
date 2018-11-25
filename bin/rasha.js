@@ -20,6 +20,10 @@ if (-1 !== [ 'jwk', 'pem', 'json', 'der', 'pkcs1', 'pkcs8', 'spki' ].indexOf(inf
   , modulusLength: parseInt(format, 10) || 2048
   , encoding: parseInt(format, 10) ? null : format
   }).then(function (key) {
+    if ('der' === infile || 'der' === format) {
+      key.private = key.private.toString('binary');
+      key.public = key.public.toString('binary');
+    }
     console.log(key.private);
     console.log(key.public);
   }).catch(function (err) {

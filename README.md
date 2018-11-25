@@ -32,7 +32,7 @@ Rasha.generate({ format: 'jwk' }).then(function (keypair) {
 
 * `format` defaults to `'jwk'`
   * `'pkcs1'` (traditional)
-  * `'pkcs8'`
+  * `'pkcs8'` <!-- * `'ssh'` -->
 * `modulusLength` defaults to 2048 (must not be lower)
   * generally you shouldn't pick a larger key size - they're slow
   * **2048** is more than sufficient

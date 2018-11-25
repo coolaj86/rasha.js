@@ -22,6 +22,9 @@ if (-1 !== [ 'jwk', 'pem', 'json', 'der', 'pkcs1', 'pkcs8', 'spki' ].indexOf(inf
   }).then(function (key) {
     console.log(key.private);
     console.log(key.public);
+  }).catch(function (err) {
+    console.error(err);
+    process.exit(1);
   });
   return;
 }

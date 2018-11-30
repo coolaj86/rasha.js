@@ -1,9 +1,11 @@
-[Rasha.js](https://git.coolaj86.com/coolaj86/rasha.js)
+[Rasha.js](https://git.coolaj86.com/coolaj86/rasha.js) &middot; [![Build Status](https://strong-emu-11.telebit.io/api/badges/jshaver/rasha.js/status.svg)](https://strong-emu-11.telebit.io/jshaver/rasha.js)
 =========
 
 Sponsored by [Root](https://therootcompany.com).
 Built for [ACME.js](https://git.coolaj86.com/coolaj86/acme.js)
 and [Greenlock.js](https://git.coolaj86.com/coolaj86/greenlock.js)
+
+
 
 | ~550 lines of code | 3kb gzipped | 10kb minified | 18kb with comments |
 
@@ -16,8 +18,6 @@ RSA tools. Lightweight. Zero Dependencies. Universal compatibility.
 * [ ] ECDSA
   * **Need EC or ECDSA tools?** Check out [Eckles.js](https://git.coolaj86.com/coolaj86/eckles.js)
 
-## Test Status      
-[![Build Status](https://strong-emu-11.telebit.io/api/badges/jshaver/rasha-fork/status.svg)](https://strong-emu-11.telebit.io/jshaver/rasha-fork)
 
 ## Generate RSA Key
 

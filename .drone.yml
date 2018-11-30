@@ -4,6 +4,8 @@ name: default
 pipeline:
   build:
     image: node
+    environment:
+      RASHA_TEST_LARGE_KEYS: 1
     commands:
-      - npm install
+      - npm install --ignore-scripts
       - npm test

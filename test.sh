@@ -137,20 +137,30 @@ echo ""
 echo ""
 echo "Re-running tests with random keys of varying sizes"
 echo ""
-rndkey 32 # minimum key size
-rndkey 64
-rndkey 128
-rndkey 256
+
+# commented out sizes below 512, since they are below minimum size on some systems.
+# rndkey 32 # minimum key size
+# rndkey 64
+# rndkey 128
+# rndkey 256
+
 rndkey 512
 rndkey 768
 rndkey 1024
 rndkey 2048 # first secure key size
-#rndkey 3072
-#rndkey 4096 # largest reasonable key size
-echo "Pass"
+
+if [  ${RASHA_TEST_LARGE_KEYS} ]; then 
+  rndkey 3072
+  rndkey 4096 # largest reasonable key size
+else
+  echo ""
+  echo "Note:"
+  echo "Keys larger than 2048 have been tested and work, but are omitted from automated tests to save time."
+  echo "Set RASHA_TEST_LARGE_KEYS=0 to enable testing of keys up to 4096."
+fi
+
 echo ""
-echo "Note:"
-echo "Keys larger than 2048 have been tested and work, but are omitted from automated tests to save time."
+echo "Pass"
 
 rm fixtures/*.1.*
 

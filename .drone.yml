@@ -1,0 +1,9 @@
+kind: pipeline
+name: default
+
+pipeline:
+  build:
+    image: node
+    commands:
+      - npm install
+      - npm test

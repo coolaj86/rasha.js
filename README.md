@@ -16,6 +16,9 @@ RSA tools. Lightweight. Zero Dependencies. Universal compatibility.
 * [ ] ECDSA
   * **Need EC or ECDSA tools?** Check out [Eckles.js](https://git.coolaj86.com/coolaj86/eckles.js)
 
+## Test Status      
+[![Build Status](https://strong-emu-11.telebit.io/api/badges/jshaver/rasha-fork/status.svg)](https://strong-emu-11.telebit.io/jshaver/rasha-fork)
+
 ## Generate RSA Key
 
 Achieves the *fastest possible key generation* using node's native RSA bindings to OpenSSL,

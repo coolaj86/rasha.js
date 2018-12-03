@@ -1,4 +1,4 @@
-[Rasha.js](https://git.coolaj86.com/coolaj86/rasha.js) &middot; [![Build Status](https://strong-emu-11.telebit.io/api/badges/jshaver/rasha.js/status.svg)](https://strong-emu-11.telebit.io/jshaver/rasha.js)
+[Rasha.js](https://git.coolaj86.com/coolaj86/rasha.js) &middot; [![Build Status](https://strong-emu-11.telebit.io/api/badges/coolaj86/rasha.js/status.svg)](https://strong-emu-11.telebit.io/coolaj86/rasha.js)
 =========
 
 Sponsored by [Root](https://therootcompany.com).

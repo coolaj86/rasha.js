@@ -5,7 +5,7 @@ pipeline:
   build:
     image: node
     environment:
-      RASHA_TEST_LARGE_KEYS: 1
+      RASHA_TEST_LARGE_KEYS: "true"
     commands:
       - npm install --ignore-scripts
       - npm test

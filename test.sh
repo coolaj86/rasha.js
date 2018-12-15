@@ -149,14 +149,14 @@ rndkey 768
 rndkey 1024
 rndkey 2048 # first secure key size
 
-if [  ${RASHA_TEST_LARGE_KEYS} ]; then 
+if [ "${RASHA_TEST_LARGE_KEYS}" == "true" ]; then 
   rndkey 3072
   rndkey 4096 # largest reasonable key size
 else
   echo ""
   echo "Note:"
   echo "Keys larger than 2048 have been tested and work, but are omitted from automated tests to save time."
-  echo "Set RASHA_TEST_LARGE_KEYS=0 to enable testing of keys up to 4096."
+  echo "Set RASHA_TEST_LARGE_KEYS=true to enable testing of keys up to 4096."
 fi
 
 echo ""

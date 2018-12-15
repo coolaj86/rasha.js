@@ -8,6 +8,12 @@ var ASN1 = require('../lib/asn1.js');
 
 var infile = process.argv[2];
 var format = process.argv[3];
+var msg = process.argv[4];
+var sign;
+if ('sign' === format) {
+  sign = true;
+  format = 'pkcs8';
+}
 
 if (!infile) {
   infile = 'jwk';
@@ -47,6 +53,8 @@ if ('string' === typeof key) {
     ASN1.tpl(asn1);
     return;
   }
+  if (sign) { signMessage(key, msg); return; }
+
   var pub = (-1 !== [ 'public', 'spki', 'pkix' ].indexOf(format));
   Rasha.import({ pem: key, public: (pub || format) }).then(function (jwk) {
     console.info(JSON.stringify(jwk, null, 2));
@@ -56,9 +64,33 @@ if ('string' === typeof key) {
   });
 } else {
   Rasha.export({ jwk: key, format: format }).then(function (pem) {
+    if (sign) { signMessage(pem, msg); return; }
     console.info(pem);
   }).catch(function (err) {
     console.error(err);
     process.exit(2);
   });
+}
+
+function signMessage(pem, name) {
+  var msg;
+  try {
+    msg = fs.readFileSync(name);
+  } catch(e) {
+    console.warn("[info] input string did not exist as a file, signing the string itself");
+    msg = Buffer.from(name, 'binary');
+  }
+  var crypto = require('crypto');
+  var sign = crypto.createSign('SHA256');
+  sign.write(msg)
+  sign.end()
+  var buf = sign.sign(pem);
+  console.log(buf.toString('base64'));
+  /*
+  Rasha.sign({ pem: pem, message: msg, alg: 'SHA256' }).then(function (sig) {
+  }).catch(function () {
+    console.error(err);
+    process.exit(3);
+  });
+  */
 }

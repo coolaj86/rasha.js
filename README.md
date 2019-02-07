@@ -14,6 +14,7 @@ RSA tools. Lightweight. Zero Dependencies. Universal compatibility.
 * [x] Fast and Easy RSA Key Generation
 * [x] PEM-to-JWK
 * [x] JWK-to-PEM
+* [x] JWK thumbprint
 * [x] SSH "pub" format
 * [ ] ECDSA
   * **Need EC or ECDSA tools?** Check out [Eckles.js](https://git.coolaj86.com/coolaj86/eckles.js)
@@ -172,6 +173,14 @@ MIIBCgKCAQEAm2ttVBxPlWw06ZmGBWVDlfjkPAJ4DgnY0TrDwtCohHzLxGhDNzUJ
 efLukC+xu0LBKylYojT5vTkxaOhx.....TmzCh2ikrwTMja7mUdBJf2bK3By5AB0
 Qi49OykUCfNZeQlEz7UNNj9RGps/50+CNwIDAQAB
 -----END PUBLIC KEY-----
+```
+
+## JWK Thumbprint
+
+```js
+Rasha.thumbprint({ jwk: jwk }).then(function (thumbprint) {
+  console.log(thumbprint);
+});
 ```
 
 Testing

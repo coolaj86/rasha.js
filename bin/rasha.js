@@ -46,7 +46,16 @@ try {
   // ignore
 }
 
+var thumbprint = ('thumbprint' === format);
+if (thumbprint) {
+  format = 'public';
+}
+
 if ('string' === typeof key) {
+  if (thumbprint) {
+    Rasha.thumbprint({ pem: key }).then(console.info);
+    return;
+  }
   if ('tpl' === format) {
     var block = PEM.parseBlock(key);
     var asn1 = ASN1.parse(block.der);
@@ -63,6 +72,10 @@ if ('string' === typeof key) {
     process.exit(1);
   });
 } else {
+  if (thumbprint) {
+    Rasha.thumbprint({ jwk: key }).then(console.info);
+    return;
+  }
   Rasha.export({ jwk: key, format: format }).then(function (pem) {
     if (sign) { signMessage(pem, msg); return; }
     console.info(pem);

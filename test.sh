@@ -149,7 +149,7 @@ rndkey 768
 rndkey 1024
 rndkey 2048 # first secure key size
 
-if [ "${RASHA_TEST_LARGE_KEYS}" == "true" ]; then 
+if [ "${RASHA_TEST_LARGE_KEYS}" == "true" ]; then
   rndkey 3072
   rndkey 4096 # largest reasonable key size
 else
@@ -163,6 +163,12 @@ echo ""
 echo "Pass"
 
 rm fixtures/*.1.*
+
+echo ""
+echo "Testing Thumbprints"
+node bin/rasha.js ./fixtures/privkey-rsa-2048.pkcs1.pem thumbprint
+node bin/rasha.js ./fixtures/pub-rsa-2048.jwk.json thumbprint
+echo "PASS"
 
 echo ""
 echo ""
